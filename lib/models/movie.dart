@@ -5,6 +5,7 @@ class Movie {
   final String poster;
   final String description;
   final double rate;
+  final String originalLanguage;
 
   Movie({
     required this.id,
@@ -13,6 +14,7 @@ class Movie {
     required this.poster,
     required this.description,
     required this.rate,
+    required this.originalLanguage,
   });
 
   factory Movie.fromJson(Map<String, dynamic> json) {
@@ -25,6 +27,7 @@ class Movie {
       rate: (json['vote_average'] is num)
           ? (json['vote_average'] as num).toDouble()
           : 0.0, //num gère int et double
+      originalLanguage: json['original_language'] ?? 'Inconnu',
     );
   }
 }
