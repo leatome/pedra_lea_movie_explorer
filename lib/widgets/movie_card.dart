@@ -16,8 +16,8 @@ class MovieCard extends StatelessWidget {
           context,
           //MaterialPageRoute(builder: (context) => DetailsPage(movie: movie)),
           PageRouteBuilder(
-            pageBuilder: (_, __, ___) => DetailsPage(movie: movie),
-            transitionsBuilder: (_, animation, __, child) {
+            pageBuilder: (_, _, _) => DetailsPage(movie: movie),
+            transitionsBuilder: (_, animation, _, child) {
               return SlideTransition(
                 position: Tween<Offset>(
                   begin: Offset(1, 0), // côté droit
@@ -55,7 +55,7 @@ class MovieCard extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            movie.title,
+                            "${movie.title} (${movie.originalLanguage})",
                             style: Theme.of(context).textTheme.titleLarge,
                           ),
                         ),
